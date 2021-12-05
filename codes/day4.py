@@ -56,19 +56,11 @@ for draw in draw_numbers:
 # Part 2
 winning_scores = []
 win_flag = 0
-
-bingo_cards = []
-new_card = ''
-for l in lines[2:]:
-    if l.strip() != '':
-        new_card += l + ' '
-    else:
-        bingo_cards.append([int(entry) for entry in new_card.split()])
-        new_card = ''
-
+bingo_cards_copy = bingo_cards.copy()
 winning_cards = []
+
 for draw in draw_numbers:
-    for card in bingo_cards:
+    for card in bingo_cards_copy:
         while draw in card:
             card[card.index(draw)] = -1
         
@@ -79,7 +71,7 @@ for draw in draw_numbers:
 
 
     if winning_cards:
-        bingo_cards = [b for b in bingo_cards if b not in winning_cards]
+        bingo_cards_copy = [b for b in bingo_cards_copy if b not in winning_cards]
         winning_cards = []
 
 
