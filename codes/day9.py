@@ -72,7 +72,6 @@ def return_basin_size(coordinates, heatmap):
     # prev_size, cur_size = 0, 1
     process_queue, basin = [coordinates], set()
     while process_queue:
-    # for _ in range(3):
         # find all the points around the current coordinate that are not of height 9
         coordinate = process_queue[0]
         x, y = coordinate
